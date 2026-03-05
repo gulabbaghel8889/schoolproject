@@ -10,9 +10,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 import os
+import os
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
-DEBUG = False  # deployment ke liye
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 ALLOWED_HOSTS = ["schoolproject-kmng.onrender.com"]
 
 # Application definition
