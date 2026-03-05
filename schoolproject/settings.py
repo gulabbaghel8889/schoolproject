@@ -11,14 +11,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 import os
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = "temporary-secret-key"
 
-DEBUG = os.environ.get("DEBUG") == "True"
+DEBUG = False
 
-ALLOWED_HOSTS = [
-    "schoolproject-kmng.onrender.com",
-]
-
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
