@@ -11,15 +11,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 import os
 
-SECRET_KEY = "temporary-secret-key"
-
-DEBUG = False
-
-ALLOWED_HOSTS = [
-    "schoolproject-kmng.onrender.com",
-    "localhost",
-    "127.0.0.1",
-]
+SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = False  # deployment ke liye
+ALLOWED_HOSTS = ["schoolproject-kmng.onrender.com"]
 
 # Application definition
 
