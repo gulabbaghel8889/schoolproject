@@ -9,13 +9,15 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-04@kychur=8_0)ux(p&_v5i8z-!8@d7=qbow8xew*7!ne+fidl'
+import os
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
-ALLOWED_HOSTS = []
+DEBUG = os.environ.get("DEBUG") == "True"
+
+ALLOWED_HOSTS = [
+    "schoolproject-kmng.onrender.com",
+]
 
 
 # Application definition
