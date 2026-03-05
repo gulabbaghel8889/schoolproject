@@ -15,7 +15,11 @@ SECRET_KEY = "temporary-secret-key"
 
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = [
+    "schoolproject-kmng.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 # Application definition
 
