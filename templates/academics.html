@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Bright Future Academy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-button.active {
+            background-color: #1d4ed8;
+            color: white;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <!-- Navigation -->
+ <nav class="bg-blue-800 text-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <i data-feather="book-open" class="text-yellow-300"></i>
+            <span class="text-xl font-bold">Bright Future</span>
+        </div>
+
+        <div class="hidden md:flex space-x-8">
+            <a href="{% url 'home' %}" class="hover:text-yellow-300 font-medium">Home</a>
+            <a href="{% url 'about' %}" class="hover:text-yellow-300 font-medium">About</a>
+            <a href="{% url 'academics' %}" class="text-yellow-300 font-medium">Academics</a>
+            <a href="{% url 'admissions' %}" class="hover:text-yellow-300 font-medium">Admissions</a>
+            <a href="{% url 'contact' %}" class="hover:text-yellow-300 font-medium">Contact</a>
+        </div>
+
+        <button class="md:hidden focus:outline-none" id="menu-toggle">
+            <i data-feather="menu"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-blue-700 px-4 py-2" id="mobile-menu">
+        <a href="{% url 'home' %}" class="block py-2 hover:text-yellow-300">Home</a>
+        <a href="{% url 'about' %}" class="block py-2 hover:text-yellow-300">About</a>
+        <a href="{% url 'academics' %}" class="block py-2 text-yellow-300">Academics</a>
+        <a href="{% url 'admissions' %}" class="block py-2 hover:text-yellow-300">Admissions</a>
+        <a href="{% url 'contact' %}" class="block py-2 hover:text-yellow-300">Contact</a>
+    </div>
+</nav>
+
+{% load static %}
+
+<section class="bg-blue-600 text-white py-20 relative" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{% static "images/academic.jpg" %}'); background-size: cover; background-position: center;">
+    <div class="container mx-auto px-4 text-center relative z-10">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">Academic Programs</h1>
+        <p class="text-xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">Comprehensive curriculum designed to challenge and inspire students at every level.</p>
+    </div>
+</section>
+
+    <!-- Programs Tabs -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center mb-12" data-aos="fade-up">
+                <button class="tab-button px-6 py-3 rounded-t-lg mr-2 bg-gray-200 hover:bg-blue-600 hover:text-white transition duration-300 active" data-tab="elementary">Elementary</button>
+                <button class="tab-button px-6 py-3 rounded-t-lg mr-2 bg-gray-200 hover:bg-blue-600 hover:text-white transition duration-300" data-tab="middle">Middle School</button>
+                <button class="tab-button px-6 py-3 rounded-t-lg mr-2 bg-gray-200 hover:bg-blue-600 hover:text-white transition duration-300" data-tab="high">High School</button>
+                <button class="tab-button px-6 py-3 rounded-t-lg bg-gray-200 hover:bg-blue-600 hover:text-white transition duration-300" data-tab="special">Special Programs</button>
+            </div>
+
+            <!-- Elementary School Content -->
+            <div id="elementary" class="tab-content active" data-aos="fade-up">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="program-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-feather="book" class="text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-blue-800">Core Curriculum</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Foundational courses in Language Arts, Mathematics, Science, and Social Studies with hands-on learning experiences.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Personalized reading programs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Math manipulatives and real-world applications</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Science exploration labs</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="program-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-feather="activity" class="text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-blue-800">Enrichment Programs</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Specialized programs to develop well-rounded students and discover individual talents.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Art and music appreciation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Physical education and health</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Introduction to technology and coding</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Foreign language exposure</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle School Content -->
+            <div id="middle" class="tab-content" data-aos="fade-up">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="program-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-feather="layers" class="text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-blue-800">Core Subjects</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Rigorous academic program preparing students for high school challenges.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Advanced Mathematics tracks</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Literature and composition focus</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Life and physical sciences</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>World history and geography</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="program-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-feather="compass" class="text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-blue-800">Exploratory Courses</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Opportunities to explore diverse subjects and develop new interests.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>STEM electives (Robotics, Coding)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Foreign language options</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Performing and visual arts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Leadership and service learning</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- High School Content -->
+            <div id="high" class="tab-content" data-aos="fade-up">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="program-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-feather="bar-chart-2" class="text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-blue-800">College Prep Curriculum</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Advanced courses to prepare students for university success.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Honors and AP courses</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Dual enrollment options</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Research and thesis opportunities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>College counseling program</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="program-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-feather="briefcase" class="text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-blue-800">Career Pathways</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Specialized tracks to explore potential career interests.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>STEM Academy</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Business and Entrepreneurship</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Arts and Humanities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Health Sciences</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Special Programs Content -->
+            <div id="special" class="tab-content" data-aos="fade-up">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="program-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-feather="cpu" class="text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-blue-800">STEM Initiatives</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Cutting-edge programs in science, technology, engineering, and math.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Robotics team and competitions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>3D printing and maker space</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Partnerships with tech companies</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Annual science symposium</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="program-card bg-white p-8 rounded-lg shadow-md">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i data-feather="globe" class="text-blue-600"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-blue-800">Global Education</h3>
+                        </div>
+                        <p class="text-gray-600 mb-4">Programs to develop global awareness and cultural competence.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>International exchange programs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Model United Nations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Language immersion options</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-feather="check" class="text-green-500 mr-2 mt-1"></i>
+                                <span>Global issues curriculum</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Calendar -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-blue-800" data-aos="fade-up">Academic Calendar</h2>
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden" data-aos="fade-up">
+                <div class="grid md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-gray-200">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4 text-blue-800">Fall Semester</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex justify-between">
+                                <span>First Day</span>
+                                <span class="font-medium">Aug 28</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Thanksgiving Break</span>
+                                <span class="font-medium">Nov 22-24</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Final Exams</span>
+                                <span class="font-medium">Dec 18-20</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Winter Break</span>
+                                <span class="font-medium">Dec 21-Jan 7</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4 text-blue-800">Spring Semester</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex justify-between">
+                                <span>First Day</span>
+                                <span class="font-medium">Jan 8</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Spring Break</span>
+                                <span class="font-medium">Mar 11-15</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Final Exams</span>
+                                <span class="font-medium">May 20-24</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Graduation</span>
+                                <span class="font-medium">May 31</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-4 text-blue-800">Important Dates</h3>
+                        <ul class="space-y-3 text-gray-600">
+                            <li class="flex justify-between">
+                                <span>Parent-Teacher Conferences</span>
+                                <span class="font-medium">Oct 10, Mar 5</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Standardized Testing</span>
+                                <span class="font-medium">Apr 8-12</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Science Fair</span>
+                                <span class="font-medium">Feb 15</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>Arts Festival</span>
+                                <span class="font-medium">Apr 26</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-feather="book-open" class="text-yellow-300"></i>
+                        <span class="text-xl font-bold">Bright Future</span>
+                    </div>
+                    <p class="text-gray-400">Empowering students through education since 1995.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Academics</a></li>
+                        <li><a href="admissions.html" class="text-gray-400 hover:text-white">Admissions</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="mr-2 mt-1"></i>
+                            <span>123 Education Street, Learning City, 10101</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2"></i>
+                            <span>(123) 456-7890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2"></i>
+                            <span>info@brightfuture.edu</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates and announcements.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+                        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold px-4 py-2 rounded-r-lg">
+                            <i data-feather="send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Bright Future Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Tab functionality
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and content
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Initialize AOS and Feather Icons
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+            feather.replace();
+        });
+    </script>
+</body>
+</html>

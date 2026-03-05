@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Bright Future Academy</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <style>
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                  url('http://static.photos/education/1200x630/7');
+      background-size: cover;
+      background-position: center;
+    }
+  </style>
+</head>
+<body class="font-sans">
+
+  <!-- Navigation -->
+  <nav class="bg-blue-800 text-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i data-feather="book-open" class="text-yellow-300"></i>
+        <span class="text-xl font-bold">Bright Future</span>
+      </div>
+      <div class="hidden md:flex space-x-8">
+        <a href="{% url 'home' %}" class="hover:text-yellow-300 font-medium">Home</a>
+        <a href="{% url 'about' %}" class="hover:text-yellow-300 font-medium">About</a>
+        <a href="{% url 'academics' %}" class="hover:text-yellow-300 font-medium">Academics</a>
+        <a href="{% url 'admissions' %}" class="hover:text-yellow-300 font-medium">Admissions</a>
+        <a href="{% url 'contact' %}" class="text-yellow-300 font-bold">Contact</a>
+      </div>
+      <button class="md:hidden focus:outline-none" id="menu-toggle">
+        <i data-feather="menu"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div class="md:hidden hidden bg-blue-700 px-4 py-2" id="mobile-menu">
+      <a href="{% url 'home' %}" class="block py-2 hover:text-yellow-300">Home</a>
+      <a href="{% url 'about' %}" class="block py-2 hover:text-yellow-300">About</a>
+      <a href="{% url 'academics' %}" class="block py-2 hover:text-yellow-300">Academics</a>
+      <a href="{% url 'admissions' %}" class="block py-2 hover:text-yellow-300">Admissions</a>
+      <a href="{% url 'contact' %}" class="block py-2 text-yellow-300 font-bold">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section text-white py-24 flex items-center">
+    <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6">Contact Us</h1>
+      <p class="text-xl md:text-2xl max-w-2xl mx-auto">We’d love to hear from you. Get in touch with us today.</p>
+    </div>
+  </section>
+
+  <!-- Contact Info -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12 text-blue-800" data-aos="fade-up">Get in Touch</h2>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-lg shadow-md text-center" data-aos="fade-up" data-aos-delay="100">
+          <i data-feather="map-pin" class="w-10 h-10 text-blue-600 mx-auto mb-4"></i>
+          <h3 class="text-xl font-bold text-blue-800 mb-2">Address</h3>
+          <p class="text-gray-600">EWS 01 Ward no 21 Patel Nagar, Mandideep Raisen MP, 462046</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md text-center" data-aos="fade-up" data-aos-delay="200">
+          <i data-feather="phone" class="w-10 h-10 text-blue-600 mx-auto mb-4"></i>
+          <h3 class="text-xl font-bold text-blue-800 mb-2">Phone</h3>
+          <p class="text-gray-600">8889579462</p>
+        </div>
+        <div class="bg-white p-8 rounded-lg shadow-md text-center" data-aos="fade-up" data-aos-delay="300">
+          <i data-feather="mail" class="w-10 h-10 text-blue-600 mx-auto mb-4"></i>
+          <h3 class="text-xl font-bold text-blue-800 mb-2">Email</h3>
+          <p class="text-gray-600">info@brightfuture.edu</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12 text-blue-800" data-aos="fade-up">Send Us a Message</h2>
+      <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+
+        {% if messages %}
+          <div class="mb-4">
+            {% for message in messages %}
+              <p class="text-green-600 font-medium">{{ message }}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <form id="contactForm" method="POST" action="{% url 'contact' %}" class="space-y-6">
+          {% csrf_token %}
+          <div>
+            <label class="block mb-2 font-medium text-gray-700">Full Name</label>
+            <input type="text" id="name" name="name"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+          </div>
+          <div>
+            <label class="block mb-2 font-medium text-gray-700">Email Address</label>
+            <input type="email" id="email" name="email"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+          </div>
+          <div>
+            <label class="block mb-2 font-medium text-gray-700">Subject</label>
+            <input type="text" id="subject" name="subject"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+          </div>
+          <div>
+            <label class="block mb-2 font-medium text-gray-700">Message</label>
+            <textarea id="message" name="message" rows="5"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+          </div>
+          <button type="submit"
+            class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg transition duration-300">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+<!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i data-feather="book-open" class="text-yellow-300"></i>
+                        <span class="text-xl font-bold">Bright Future</span>
+                    </div>
+                    <p class="text-gray-400">Empowering students through education since 1995.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="facebook"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i data-feather="youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="about" class="text-gray-400 hover:text-white">About Us</a></li>
+                        <li><a href="academics" class="text-gray-400 hover:text-white">Academics</a></li>
+                        <li><a href="admissions" class="text-gray-400 hover:text-white">Admissions</a></li>
+                        <li><a href="contact" class="text-gray-400 hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="mr-2 mt-1"></i>
+                            <span>EWS 01 Ward no 21 Patel Nagar, Mandideep Raisen MP, 462046</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2"></i>
+                            <span>(888) 957-9462</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2"></i>
+                            <span>info@brightfuture.edu</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates and announcements.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 rounded-l-lg focus:outline-none text-gray-800 w-full">
+                        <button type="submit" class="bg-yellow-500 hover:bg-yellow-600 text-blue-900 font-bold px-4 py-2 rounded-r-lg">
+                            <i data-feather="send"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Bright Future Academy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    // Initialize AOS and Feather
+    document.addEventListener('DOMContentLoaded', function () {
+      AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
+      feather.replace();
+    });
+  </script>
+</body>
+</html>
