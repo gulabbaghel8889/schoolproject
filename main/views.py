@@ -6,6 +6,8 @@ from .forms import AdmissionForm
 from django.contrib import messages
 from .models import ContactMessage
 
+from django.contrib.auth.models import User
+from django.http import HttpResponse
 
 def home(request):
     total_admissions = Admission.objects.count()
@@ -120,3 +122,10 @@ Message: {message_text}
         return redirect("contact")
 
     return render(request, "contact.html")
+
+
+def create_admin(request):
+    if not User.objects.filter(username="admin").exists():
+        User.objects.create_superuser("admin", "admin@gmail.com", "admin123")
+        return HttpResponse("Admin created")
+    return HttpResponse("Admin already exists")

@@ -15,4 +15,6 @@ urlpatterns = [
     path('success/', views.success_view, name='success'),
 
     path("thank-you/", views.thank_you, name="thank_you"),
+    
+    path('create-admin/', views.create_admin),
 ]
