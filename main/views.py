@@ -56,7 +56,8 @@ Message: {message}
 """,
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=[settings.EMAIL_HOST_USER],
-            fail_silently=False,
+            #fail_silently=False,
+            fail_silently=True
         )
 
         return redirect("thank_you")
