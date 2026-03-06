@@ -43,22 +43,22 @@ def admissions(request):
         )
 
         # 2️⃣ Send email notification
-        send_mail(
-            subject="New Admission Form Submitted",
-            message=f"""
-New Admission Details:
+#         send_mail(
+#             subject="New Admission Form Submitted",
+#             message=f"""
+# New Admission Details:
 
-Name: {full_name}
-Email: {email}
-Phone: {phone}
-Grade: {grade}
-Message: {message}
-""",
-            from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[settings.EMAIL_HOST_USER],
-            #fail_silently=False,
-            fail_silently=True
-        )
+# Name: {full_name}
+# Email: {email}
+# Phone: {phone}
+# Grade: {grade}
+# Message: {message}
+# """,
+#             from_email=settings.EMAIL_HOST_USER,
+#             recipient_list=[settings.EMAIL_HOST_USER],
+#             #fail_silently=False,
+#             fail_silently=True
+#         )
 
         return redirect("thank_you")
 
