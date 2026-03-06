@@ -13,8 +13,8 @@ import os
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 #SECRET_KEY = "k=ia4aq9q^3-5&f22*f=77n=1th8l0ek=e_%&492mfaritin=x"
-#DEBUG = True
-DEBUG = os.environ.get("DEBUG", "False") == "True"
+DEBUG = False
+# DEBUG = os.environ.get("DEBUG", "False") == "True"
 # ALLOWED_HOSTS = ["schoolproject-kmng.onrender.com"]
 
 ALLOWED_HOSTS = ["*", "localhost"]
