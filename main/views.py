@@ -101,21 +101,21 @@ def contact(request):
             message=message_text
         )
 
-        # Send Email
-        send_mail(
-            subject=f"New Contact Message: {subject}",
-            message=f"""
-New Contact Message:
+#         # Send Email
+#         send_mail(
+#             subject=f"New Contact Message: {subject}",
+#             message=f"""
+# New Contact Message:
 
-Name: {name}
-Email: {email}
-Subject: {subject}
-Message: {message_text}
-""",
-            from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[settings.EMAIL_HOST_USER],
-            fail_silently=False,
-        )
+# Name: {name}
+# Email: {email}
+# Subject: {subject}
+# Message: {message_text}
+# """,
+#             from_email=settings.EMAIL_HOST_USER,
+#             recipient_list=[settings.EMAIL_HOST_USER],
+#             fail_silently=False,
+#         )
 
         messages.success(request, "Message sent successfully!")
 
