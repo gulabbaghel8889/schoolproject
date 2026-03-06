@@ -101,10 +101,13 @@ USE_TZ = True
 
 
 # Static files
+# Static files
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / "static"]  # agar Django 4+ use kar rahe ho
+STATIC_URL = '/static/'
 
+STATICFILES_DIRS = [BASE_DIR / "static"]   # local static folder
+
+STATIC_ROOT = BASE_DIR / "staticfiles"     # render deploy ke liye
 
 # Default primary key field type
 
