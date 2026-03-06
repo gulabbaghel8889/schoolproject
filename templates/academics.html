@@ -61,11 +61,19 @@
 
 {% load static %}
 
-<section class="bg-blue-600 text-white py-20 relative" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{% static "images/academic.jpg" %}'); background-size: cover; background-position: center;">
+<section class="bg-blue-600 text-white py-20 relative"
+style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{% static 'images/academic.jpg' %}'); background-size: cover; background-position: center;">
+
     <div class="container mx-auto px-4 text-center relative z-10">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">Academic Programs</h1>
-        <p class="text-xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">Comprehensive curriculum designed to challenge and inspire students at every level.</p>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">
+            Academic Programs
+        </h1>
+
+        <p class="text-xl max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+            Comprehensive curriculum designed to challenge and inspire students at every level.
+        </p>
     </div>
+
 </section>
 
     <!-- Programs Tabs -->
