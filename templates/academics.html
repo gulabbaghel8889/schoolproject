@@ -58,11 +58,13 @@
         <a href="{% url 'contact' %}" class="block py-2 hover:text-yellow-300">Contact</a>
     </div>
 </nav>
-
 {% load static %}
 
-<section class="bg-blue-600 text-white py-20 relative"
-style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{% static 'images/academic.jpg' %}'); background-size: cover; background-position: center;">
+<section class="text-white py-20 relative"
+style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{% static "images/academic.jpg" %}');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;">
 
     <div class="container mx-auto px-4 text-center relative z-10">
         <h1 class="text-4xl md:text-5xl font-bold mb-4" data-aos="fade-up">
